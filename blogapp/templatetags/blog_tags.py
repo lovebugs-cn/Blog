@@ -1,3 +1,4 @@
+# -*- coding=UTF-8 -*-
 from django import template
 from ..models import Post, Category, Tag
 from django.db.models.aggregates import Count

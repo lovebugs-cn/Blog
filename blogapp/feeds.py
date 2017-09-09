@@ -1,3 +1,4 @@
+# -*- coding=UTF-8 -*-
 from django.contrib.syndication.views import Feed
 from .models import Post
 

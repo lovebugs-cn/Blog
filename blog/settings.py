@@ -1,3 +1,4 @@
+# -*- coding=UTF-8 -*-
 """
 Django settings for blog project.
 
@@ -37,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blogapp',# 注册的blog应用
-    'comments',# 注册的评论应用
+    'blogapp',
+    'comments',
     'haystack',
 ]
 
@@ -124,7 +125,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
-# haystack配置
+# haystack
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'blogapp.whoosh_cn_backend.WhooshEngine',
