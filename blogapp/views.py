@@ -272,6 +272,3 @@ def search(request):
 
 class fullwidthView(IndexView):
 	template_name = 'blogapp/full-width.html'
-
-def piano(request):
-	return render(request,'blogapp/piano.html')
