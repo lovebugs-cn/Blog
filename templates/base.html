@@ -175,8 +175,8 @@ return .4;
                         <ul class="nav navbar-nav navbar-right">
                             <li class="cl-effect-11"><a href="{% url 'blogapp:index' %}" data-hover="首页">首页</a></li>
                             <li class="cl-effect-11"><a href="{% url 'blogapp:full-width' %}" data-hover="博客">博客</a></li>
-                            <li class="cl-effect-11"><a href="about.html" data-hover="关于">关于</a></li>
-                            <li class="cl-effect-11"><a href="#" data-hover="联系">联系</a></li>
+                            <li class="cl-effect-11"><a href="{% url 'blogapp:about' %}" data-hover="关于">关于</a></li>
+                            <li class="cl-effect-11"><a href="{% url 'blogapp:contact' %}" data-hover="联系">联系</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </nav>
@@ -254,9 +254,9 @@ return .4;
             {% endfor %}
         </ul>
     </div>
-
-    <div class="widget widget-tag-cloud">
-        <h3 class="widget-title shine" style="position: absolute;z-index: 1;bottom: -50%;">标签云</h3>
+<h3 class="widget-title shine" style="position: absolute;z-index: 1;bottom: -60%;">标签云</h3>
+    <div class="widget widget-tag-cloud" style="position: absolute;bottom: 280px;">
+        
         
         {% get_tags as tag_list %}
         <div id="screen" class="screen">
@@ -270,25 +270,23 @@ return .4;
         </div>
     </div>
     <div class="rss">
-        <a href="{% url 'rss' %}" style="position: absolute;top: 1050px;"><span class="ion-social-rss-outline" ></span> RSS 订阅</a>
+        <a href="{% url 'rss' %}" style="position: absolute;bottom: -800px;"><span class="ion-social-rss-outline" ></span> RSS 订阅</a>
     </div>
 </aside>
         </div>
     </div>
 </div>
 
-<div class="beian" style="text-align: center;">
-    <span>Powered by <a href="{% url 'blogapp:index' %}">Josiah Lin</a></span><a href="http://www.miitbeian.gov.cn/" style="margin-left: 20px;">鲁ICP备17039580号</a>
-</div>
+
 <!-- Mobile Menu -->
-<div class="overlay overlay-hugeinc">
+<div class="overlay overlay-hugeinc" style="position: absolute;z-index: 10000;">
     <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
     <nav>
         <ul>
             <li><a href="{% url 'blogapp:index' %}">首页</a></li>
             <li><a href="{% url 'blogapp:full-width' %}">博客</a></li>
-            <li><a href="#">关于</a></li>
-            <li><a href="#">联系</a></li>
+            <li><a href="{% url 'blogapp:about' %}">关于</a></li>
+            <li><a href="{% url 'blogapp:contact' %}">联系</a></li>
         </ul>
     </nav>
 </div>

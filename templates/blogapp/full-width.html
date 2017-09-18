@@ -63,8 +63,8 @@
   								<ul class="nav navbar-nav navbar-right">
     								<li class="cl-effect-11"><a href="{% url 'blogapp:index' %}" data-hover="首页">首页</a></li>
     								<li class="cl-effect-11"><a href="{% url 'blogapp:full-width' %}" data-hover="博客">博客</a></li>
-    								<li class="cl-effect-11"><a href="#" data-hover="关于">关于</a></li>
-    								<li class="cl-effect-11"><a href="#" data-hover="联系">联系</a></li>
+    								<li class="cl-effect-11"><a href="{% url 'blogapp:about' %}" data-hover="关于">关于</a></li>
+    								<li class="cl-effect-11"><a href="{% url 'blogapp:contact' %}" data-hover="联系">联系</a></li>
   								</ul>
 							</div><!-- /.navbar-collapse -->
 						</nav>
@@ -161,18 +161,7 @@
 		</div>
 		
 
-		<!-- Mobile Menu -->
-		<div class="overlay overlay-hugeinc">
-			<button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
-			<nav>
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="full-width.html">Blog</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
-			</nav>
-		</div>
+		
 
 		<script src="{% static 'blogapp/js/script.js' %}"></script>
 

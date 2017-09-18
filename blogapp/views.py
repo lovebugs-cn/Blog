@@ -272,3 +272,9 @@ def search(request):
 
 class fullwidthView(IndexView):
 	template_name = 'blogapp/full-width.html'
+
+def about(request):
+	return render(request,'blogapp/about.html')
+
+def contact(request):
+	return render(request,'blogapp/contact.html')

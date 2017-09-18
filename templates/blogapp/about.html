@@ -1,0 +1,279 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Josiah的博客园</title>
+
+		<!-- meta -->
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <!-- css -->
+        <link rel="shortcut icon" type="text/css" href="/static/blogapp/img/logo.png" />
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'blogapp/css/ionicons.min.css' %}">
+		<link rel="stylesheet" href="{% static 'blogapp/css/pace.css' %}">
+	    <link rel="stylesheet" href="{% static 'blogapp/css/custom.css' %}">
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'blogapp/css/audio.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'blogapp/css/style.css' %}">
+	    <!-- js -->
+	    <script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+	    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <script src="{% static 'blogapp/js/pace.min.js' %}"></script>
+	    <script src="{% static 'blogapp/js/modernizr.custom.js' %}"></script>
+	</head>
+    <style type="text/css">
+        .about_top{
+            margin-bottom: 15px;
+            border: none;
+            height: 150px;
+  }
+  .audio-prev{
+    background-image: url("{% static 'blogapp/img/prev.png' %}");
+}
+.audio-next{
+    background-image: url("{% static 'blogapp/img/next.png' %}");
+}
+.audio-play{
+    background-image: url("{% static 'blogapp/img/play.png' %}");
+}
+.audio-stop{
+    background-image: url("{% static 'blogapp/img/pause.png' %}");
+}
+.audio-menu{
+    background-image: url("{% static 'blogapp/img/menu.png' %}");
+}
+.audio-volume{
+    background-image: url("{% static 'blogapp/img/volume.png' %}");
+}
+    </style>
+	<body>
+        <div class="row">
+		<div class="container" class="col-md-4">	
+			<header id="site-header">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-8">
+						<div class="logo">
+                            <a href="{% url 'blogapp:index' %}"><img src="{% static 'blogapp/img/logo.png' %}" class="img-circle img-responsive"/></a>
+                            <h1 class="text-nowrap"><a href="{% url 'blogapp:index' %}">Josiah的博客园</a></h1>
+                        </div>
+					</div><!-- col-md-4 -->
+					<div class="col-md-8 col-sm-7 col-xs-4">
+						<nav class="main-nav" role="navigation">
+							<div class="navbar-header">
+  								<button type="button" id="trigger-overlay" class="navbar-toggle">
+    								<span class="ion-navicon"></span>
+  								</button>
+							</div>
+
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  								<ul class="nav navbar-nav navbar-right">
+    								<li class="cl-effect-11"><a href="{% url 'blogapp:index' %}" data-hover="首页">首页</a></li>
+    								<li class="cl-effect-11"><a href="{% url 'blogapp:full-width' %}" data-hover="博客">博客</a></li>
+    								<li class="cl-effect-11"><a href="{% url 'blogapp:about' %}" data-hover="关于">关于</a></li>
+    								<li class="cl-effect-11"><a href="{% url 'blogapp:contact' %}" data-hover="联系">联系</a></li>
+  								</ul>
+							</div><!-- /.navbar-collapse -->
+						</nav>
+						
+					</div><!-- col-md-8 -->
+				</div>
+			</header>
+		</div>
+        <div class="contain">
+    <header>
+        <div class="bio">
+        <img src="{% static 'blogapp/img/up.jpg' %}" alt="background" class="bg">
+            <div class="desc">
+                <h3>@Josiah</h3>
+                <p>你所拥有的一切都是你吸引而来的。我们都活在过去的行为和想法造就的世界里。</p>
+            </div>
+        </div>
+        <div class="avatarcontainer">
+            <img src="{% static 'blogapp/img/logo.png' %}" alt="avatar" class="avatar">
+            <div class="hover">
+                <div class="icon-twitter"></div>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="data">
+            <ul>
+                <li>
+                    <span>博客</span>
+                    2,931                   
+                </li>
+                <li>
+                    <span>关注</span>
+                    -                   
+                </li>
+                <li>
+                    <span>订阅</span>
+                    -
+                </li>
+            </ul>
+        </div>
+        <div class="follow"> <div class="icon-twitter"></div> 关注</div>
+    </div>
+</div>
+    
+    <div class="about" class="col-md-8">
+        <h2>关于网站：</h2>
+        <div class="about_top">
+            <ul>
+                <li>开发环境：<span>Python3.6.1 + Django1.11.3</span></li>
+                <li>服务器：<span>阿里云 ubuntu 16.04</span></li>
+                <li>部署：<span>Nginx + Gunicorn</span></li>
+                <li>上线时间：<span>2017年9月18日</span></li>
+            </ul>
+
+        </div>
+        <h2>关于我：</h2>
+        <div class="about_bottom">
+        <ul>
+            <li>Name：<span>Josiah Lin<span/></li>
+            <li>Email：<span>1319164238@qq.com</span></li>
+            <li>cnblog：<a href="http://www.cnblogs.com/Josiah-Lin/" target="_blank">www.cnblogs.com/Josiah-Lin</a></li>
+            <li>GitHub：<a href="https://github.com/Josiah-Lin" target="_blank">https://github.com/Josiah-Lin</a></li>
+        </ul>
+        </div>
+    </div>
+    <div class="josiah">
+    <h2>Josiah Lin：</h2> 
+    <div class="about_middle">
+        目前的前端页面是随便改的模板，比较low，而且有挺多小bug，特别是响应式的效果比较差，后台的功能还很不完善，准备暂时先凑合用着，等过段时间找套好点的模板再重新写一下，后台功能一点点再完善吧~~
+    </div>
+    </div>
+
+    <div class="audio-box">
+        <div class="audio-container">
+            <div class="audio-cover"></div>
+            <div class="audio-view">
+                <h3 class="audio-title">未知歌曲</h3>
+                <div class="audio-body">
+                    <div class="audio-backs">
+                        <div class="audio-this-time">00:00</div>
+                        <div class="audio-count-time">00:00</div>
+                        <div class="audio-setbacks">
+                            <i class="audio-this-setbacks">
+                                <span class="audio-backs-btn"></span>
+                            </i>
+                            <span class="audio-cache-setbacks">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="audio-btn">
+                    <div class="audio-select">
+                        <div class="audio-prev"></div>
+                        <div class="audio-play"></div>
+                        <div class="audio-next"></div>
+                        <div class="audio-menu"></div>
+                        <div class="audio-volume"></div>
+                    </div>
+                    <div class="audio-set-volume">
+                        <div class="volume-box">
+                            <i><span></span></i>
+                        </div>
+                    </div>
+                    <div class="audio-list">
+                        <div class="audio-list-head">
+                            <p>☺随心听</p>
+                            <span class="menu-close">关闭</span>
+                        </div>
+                        <ul class="audio-inline">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="{% static 'blogapp/js/audio.js' %}"></script>
+<script type="text/javascript">
+$(function(){
+    var song = [
+        {
+            'cover' : "{% static 'blogapp/img/cover01.jpg' %}",
+            'src' : 'http://dl.stream.qqmusic.qq.com/C40000375L600p9sxv.m4a?vkey=8DDF96314B0E4784DCDD45E970B6F8328174095B6DC637B66A7ECC9F73EF0004110566075C17A655F8DB4696F063333B06255DA32C6074B1&guid=3629839504&uin=0&fromtag=66',
+            'title' : '像我这样的人 - 毛不易'
+        },
+        {
+            'cover' : "{% static 'blogapp/img/cover02.png' %}",
+            'src' : 'http://dl.stream.qqmusic.qq.com/C400003kLvu04bLGzi.m4a?vkey=2B7847CDB940CF160AC0C1EEA965A519896DCDF2555AADF588474981E09269127DCCA42E82FF539527220365B9EA0E3AF617DD56E9E29FC6&guid=3629839504&uin=0&fromtag=66',
+            'title' : '消愁 - 毛不易'
+        },
+        {
+            'cover' : "{% static 'blogapp/img/cover03.jpg' %}",
+            'src' : 'http://mp3.qqmusic.cc/yq/639141.mp3',
+            'title' : 'Love Story - Taylor Swift'
+        },
+        
+        {
+            'cover' : "{% static 'blogapp/img/cover04.jpg' %}",
+            'src' : 'http://dl.stream.qqmusic.qq.com/C4000006N7ge388PxV.m4a?vkey=927DB9EA8222A0057097465F7B155E1E9E0692FE4D7A5E5F578B269072172EE80F252A79D1E9E34734FB85980329A07ED33AF3F0AEE644D6&guid=3629839504&uin=0&fromtag=66',
+            'title' : 'See you Again - Wiz Khalifa/Charlie Puth'
+        },
+        {
+            'cover' : "{% static 'blogapp/img/cover05.jpg' %}",
+            'src' : 'http://dl.stream.qqmusic.qq.com/C400001zCLnO2NIiDQ.m4a?vkey=650D85D44CE04DB4693591BE1CE74A86C84667A7A20982AB28A94614C4347F3616AE868699EEB94442512CD1A869A091D8BDD50A584F20B0&guid=3629839504&uin=1319164238&fromtag=66',
+            'title' : 'Uptown Funk - Mark Ronson/Bruno Mars'
+        },
+        {
+            'cover' : "{% static 'blogapp/img/cover06.jpg' %}",
+            'src' : 'http://dl.stream.qqmusic.qq.com/C4000012hyrb39mCYU.m4a?vkey=B7CA890E983CBAFC02F08B36A2AEEAEA4EFA1D8078B53759BA388980E20DCD99D3E5364C8C3CBD5DD99F955523F514EB8B3E08CBC7C0B716&guid=3629839504&uin=1319164238&fromtag=66',
+            'title' : "We Don't Talk Anymore - Charlie Puth/Selena Gomez"
+        },
+        {
+            'cover' : "{% static 'blogapp/img/cover08.jpg' %}",
+            'src' : 'http://dl.stream.qqmusic.qq.com/C400003EKHdv2KvTc6.m4a?vkey=08265DDA1DCC6054B1435551DA0E8E2D66AD5D8223F9A2726BB95D88DF0698A7072508F6D62622C364F21E9D83E61AF4E49099D3620831A1&guid=3629839504&uin=1319164238&fromtag=66',
+            'title' : '一半 - 薛之谦'
+        },
+        {
+            'cover' : "{% static 'blogapp/img/cover09.jpg' %}",
+            'src' : 'http://dl.stream.qqmusic.qq.com/C400001CG3wA3QkuJS.m4a?vkey=F60BA6E15E81447D1EA320C8AC9722E736DD46D9EE8E24C07041231AEAFA7674A871F2D7A1BA8396D0E66E511BCF66AC6ADA78EFAF600965&guid=3629839504&uin=1319164238&fromtag=66',
+            'title' : '绅士 - 薛之谦'
+        },
+        {
+            'cover' : "{% static 'blogapp/img/cover10.jpg' %}",
+            'src' : 'http://dl.stream.qqmusic.qq.com/C400003OUlho2HcRHC.m4a?vkey=7F14228FA16D4BD5DD9194F97A688C94C799CB5DDE9D2F99934D81B6CDA5E42A91B7F76D8FD0859E5FB753ED298A1ABA527AFB91F82B2C2C&guid=3629839504&uin=1319164238&fromtag=66',
+            'title' : '告白气球 - 周杰伦'
+        },
+    ];
+
+    var audioFn = audioPlay({
+        song : song,
+        autoPlay : true  //是否立即播放第一首，autoPlay为true且song为空，会alert文本提示并退出
+    });
+
+    /* 向歌单中添加新曲目，第二个参数true为新增后立即播放该曲目，false则不播放 */
+    audioFn.newSong({
+        'cover' : "{% static 'blogapp/img/cover07.jpg' %}",
+        'src' : 'http://dl.stream.qqmusic.qq.com/C4000016Dmfe35WC1V.m4a?vkey=213A8176E13F97AE578490F530532305BC16136F4576DB7A0D82D0ACB3351572E6D73A8951A50D754240BDAC20F6A1613F9CB41A56E08803&guid=3629839504&uin=1319164238&fromtag=66',
+        'title' : '春夏秋冬的你 - 王宇良'
+    },false);
+
+    /* 暂停播放 */
+    //audioFn.stopAudio();
+
+    /* 开启播放 */
+    //audioFn.playAudio();
+
+    /* 选择歌单中索引为3的曲目(索引是从0开始的)，第二个参数true立即播放该曲目，false则不播放 */
+    //audioFn.selectMenu(3,true);
+
+    /* 查看歌单中的曲目 */
+    //console.log(audioFn.song);
+
+    /* 当前播放曲目的对象 */
+    //console.log(audioFn.audio);
+});
+</script>
+
+        <script type="text/javascript" src="{% static 'blogapp/js/index.js' %}"></script>
+		<script src="{% static 'blogapp/js/script.js' %}"></script>
+	</body>
+</html>
