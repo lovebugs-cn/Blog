@@ -1,297 +1,397 @@
 {% load staticfiles %}
-{% load blog_tags %}
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-    <title>Josiah的博客园</title>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 
-    <!-- meta -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- css -->
-    <link rel="shortcut icon" type="text/css" href="/static/blogapp/img/logo.png" />
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="{% static 'blogapp/css/pace.css' %}">
-    <link rel="stylesheet" href="{% static 'blogapp/css/custom.css' %}">
-    <link rel="stylesheet" href="{% static 'blogapp/css/highlights/github.css' %}">
-    
-    <!-- js -->
-    <script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{% static 'blogapp/js/pace.min.js' %}"></script>
-    <script src="{% static 'blogapp/js/modernizr.custom.js' %}"></script>
-    <script type="text/javascript" src="{% static 'blogapp/js/zzsc.js' %}"></script>
-
-</head>
-<style>
-span.highlighted{
+<link href="{% static 'blog/css/style01.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'blog/css/highlight.css' %}" rel="stylesheet" type="text/css">
+<link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="{% static 'blog/css/style02.css' %}" rel="stylesheet" type="text/css" />
+  <meta name="keywords" content="Josiah" />
+  <link rel="alternate" href="css/atom.xml" title="Josiah-博客园" type="application/atom+xml" />
+  <link rel="shortcut icon" type="img/logo" href="img/logo.png" />
+<meta name="description" content="Josiah Lin">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Josiah-博客园">
+<meta property="og:url" content="http://www.linyachao.com">
+<meta property="og:site_name" content="Josiah-博客园">
+<meta property="og:description" content="Josiah Lin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Josiah-博客园">
+<meta name="twitter:description" content="Josiah Lin">
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Josiah'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <link rel="canonical" href="http://www.linyachao.com/"/>
+  <style type="text/css">
+  
+    input[type=search]{
+      background-color: #f8f9fa;
+      outline: 0;
+      font-size: 85%;
+      padding: 5px 20px 5px 5px;
+      border: 1px solid #f8f9fa;
+      border-radius: 3px;
+    }
+    button{
+      width: 30px;
+      height: 28px;
+      border: none;
+      background-color: #f5f5f5;
+      outline: none;
+    }
+    @media (max-width: 767px){
+      .menu-item-search{
+        float: left;
+      }
+      #search-form{
+        text-align: left;
+      }
+    }
+    span.highlighted {
             color: red;
         }
-.logo img{
-            width: 60px;
-            height: 60px;
-            float: left;
-            margin-top: -10px; 
-            margin-right:5px; 
-        }
-#centered{
-    width:200px;
-    margin:0 auto;
-}
-#zzsc{width:360px;
-    margin:0 auto;
-}
-#site-header,.widget,.post{
-    background-color: #f0f0f0;
-}
-.cl-effect-11 a{
-    text-shadow: 5px 5px 5px #808069;
-}
-.widget-archives a:hover{
-    text-decoration: underline;
-}
-.widget-recent-posts{
-    font-size: 20px;
-    font-family: KaiTi;
-    text-shadow: 2px 2px 2px #808069;
-}
-.widget-recent-posts a:hover{
-    text-decoration: underline;
-}
-.widget-category a:hover{
-    text-decoration: underline;
-}
-</style>
+    pre, .highlight{
+      padding: 10px;
+      margin:0 20px; 
+    }
+    .post-body{
+      margin-top: 20px;
+    }
+    .toc li{
+      margin-left: 50px;
+      
+    }
+  </style>
+  <title> Josiah-博客园 </title>
+</head>
+<body itemscope itemtype="http://www.linyachao.com" lang="zh-Hans">
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?340874ba9357cbe81570aa4ac1185941";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <div class="container one-collumn sidebar-position-right 
+   page-home 
+ ">
+    <div class="headband"></div>
 
+    <header id="header" class="header" itemscope itemtype="http://www.linyachao.com">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Josiah-博客园</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+      <h1 class="site-subtitle" itemprop="description"></h1>
+</div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">   
+        <li class="menu-item menu-item-home">
+          <a href="{% url 'blog:index' %}" rel="section">           
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />        
+            首页
+          </a>
+        </li>    
+        <li class="menu-item menu-item-categories">
+          <a href="{% url 'blog:categories' %}" rel="section">      
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />           
+            分类
+          </a>
+        </li>     
+        <li class="menu-item menu-item-archives">
+          <a href="{% url 'blog:archives' %}" rel="section">            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />           
+            归档
+          </a>
+        </li>    
+        <li class="menu-item menu-item-tags">
+          <a href="{% url 'blog:tags' %}" rel="section">           
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />          
+            标签
+          </a>
+        </li>      
+        <li class="menu-item menu-item-about">
+          <a href="{% url 'blog:about' %}" rel="section">           
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />           
+            关于
+          </a>
+        </li>   
+        <li class="menu-item menu-item-search">       
+          <form class="hide-on-mobile flex-left flex-middle search-form mr-5" id="search-form"
+              action="{% url 'haystack_search' %}">
+          <input class="unit" type="search" name="q" placeholder="搜索..."/>
+          <button class="unit-0" type="submit" role="button">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </form>
+        </li>     
+    </ul>
+    <div class="site-search">    
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+    </div>  
+</nav>
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  {% block section %}
+  {% endblock section %}
+          
+          </div>
+        </div>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+  {% block aside %}
+
+  {% endblock aside %}
+
+  </aside>
+      </div>
+    </main>
+
+{% block footer %}
+    <footer id="footer" class="footer" style="position: relative;">
+      <div class="footer-inner">
+        <div class="copyright" >
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Josiah Lin</span>
+</div>
+<div class="powered-by">
+  由 <a class="theme-link" href="https://www.djangoproject.com/" target="_blank" rel="external nofollow">Django</a> 搭建
+</div>
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+  <a href="http://www.miitbeian.gov.cn/" target="_blank" style="margin-left: 20px;">鲁ICP备17039580号</a>
+</div>
+    </footer>
+{% endblock footer %}
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
 <script type="text/javascript">
-var BeautifullMath = function () {
-var obj = [], xm = 0, ym = 0, axe = 0, aye = 0, parts = 50, scr,aArr, txe, tye, nw, nh;
-var colorArr = ['black','blue','red','green','purple'];
-var addEvent = function (o, e, f) {
-window.addEventListener ? o.addEventListener(e, f, false) : o.attachEvent('on'+e, function(){f.call(o)})
-}
-var resize = function () {
-nw = scr.offsetWidth * .5;
-nh = scr.offsetHeight * .5;
-}
-var init = function (id, f) {
-scr = document.getElementById(id);
-aArr = document.getElementById("screen").getElementsByTagName('a');
-addEvent(document, 'mousemove', function(e){
-e = e || window.event;
-xm = e.clientX;
-ym = e.clientY;
-});
-resize();
-addEvent(window, 'resize', resize);
-__init(f);
-setInterval(run, 16);
-}
-var __init = function (f) {
-for (var i=0; i<aArr.length; i++) {
-var o = {};
-o.p = aArr[i];
-o.p.style.color = colorArr[Math.round(Math.random()*4)];
-var r = i/parts, j, a, b;
-j = i % parts;
-a = Math.floor(j)/200+(Math.floor(j/2)%10)/5* Math.PI * 2;
-b = Math.acos(-0.9+(j%4)*0.6);
-r = !!f?f(r):r-r*r+.5;
-var sbr = Math.sin(b) * r;
-o.x = Math.sin(a) * sbr;
-o.y = Math.cos(a) * sbr;
-o.z = Math.cos(b) * r;
-obj.push(o);
-o.transform = function () {
-var ax = .02 * txe,
-ay = .02 * tye,
-cx = Math.cos(ax),
-sx = Math.sin(ax),
-cy = Math.cos(ay),
-sy = Math.sin(ay);
-//rotation
-var z = this.y * sx + this.z * cx;
-this.y = this.y * cx + this.z * -sx;
-this.z = this.x * -sy + z * cy;
-this.x = this.x * cy + z * sy;
-//3d
-var scale = 1 / (1 + this.z),
-x = this.x * scale * nh + nw - scale * 2,
-y = this.y * scale * nh + nh - scale * 2;
-//set style
-var p = this.p.style;
-if (x >= 0 && y >=0 && x < nw * 2 && y < nh * 2) {
-var c = Math.round(256 + (-this.z * 256));
-p.left = Math.round(x) + 'px';
-p.top = Math.round(y) + 'px';
-p.fontSize = Math.round(12*scale) + 'px';
-p.zIndex = 200 + Math.floor(-this.z * 100);
-p.opacity = .6 - this.z;
-p.filter = 'alpha(opacity='+100*(.6-this.z)+')';
-} else p.width = "0px";
-}
-}
-}
-//run function 
-var run = function () {
-var se = 1 / nh;
-txe = (ym - axe) * se;
-tye = (xm - aye) * se;
-axe += txe;
-aye += tye;
-/* ---- anim particles ---- */
-for (var i = 0, o; o = obj[i]; i++) o.transform();
-}
-return {init:init}
-}();
-onload = function () {
-BeautifullMath.init('screen', function(r){
-return .4;
-});
-}
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-<body>
-<div class="container">
-    <header id="site-header">
-        <div class="row">
-            <div class="col-md-4 col-sm-5 col-xs-8" style="padding-left: 0px;">
-                <div class="logo">
-                    <a href="{% url 'blogapp:index' %}"><img src="{% static 'blogapp/img/logo.png' %}" class="img-circle img-responsive"/></a>
-                    <h1 class="text-nowrap"><a href="{% url 'blogapp:index' %}">Josiah的博客园</a></h1>
-                </div>
-            </div><!-- col-md-4 -->
-            <div class="col-md-8 col-sm-7 col-xs-4">
-                <nav class="main-nav" role="navigation">
-                    <div class="navbar-header">
-                        <button type="button" id="trigger-overlay" class="navbar-toggle">
-                            <span class="ion-navicon"></span>
-                        </button>
-                    </div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script> 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="{% static 'blog/js/utils.js' %}"></script>
+  <script type="text/javascript" src="{% static 'blog/js/motion.js' %}"></script>
 
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="cl-effect-11"><a href="{% url 'blogapp:index' %}" data-hover="首页">首页</a></li>
-                            <li class="cl-effect-11"><a href="{% url 'blogapp:full-width' %}" data-hover="博客">博客</a></li>
-                            <li class="cl-effect-11"><a href="{% url 'blogapp:about' %}" data-hover="关于">关于</a></li>
-                            <li class="cl-effect-11"><a href="{% url 'blogapp:contact' %}" data-hover="联系">联系</a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </nav>
-                <div id="header-search-box">
-                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
-                    <div id="search-form" class="search-form">
-                        <form role="search" method="get" id="searchform" action="{% url 'haystack_search' %}">
-                            <input type="search" name="q" placeholder="搜索" required>
-                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
-                        </form>
-                    </div>
-                </div>
-            </div><!-- col-md-8 -->
-        </div>
-    </header>
-</div>
-<div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
-<div class="copyrights">Modified by <a href="http://zmrenwu.com/">追梦人物的博客</a></div>
-
-<div class="content-body">
-    <div class="container">
-        <div class="row">
-            <main class="col-md-8">
-                {% block main %}
-                {% endblock main %}
-            </main>
-            <aside class="col-md-4">
+ {% block script %}
+ <script type="text/javascript" src="{% static 'blog/js/bootstrap.js' %}"></script>
+ {% endblock script %}
 
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
 
-<div id="zzsc"></div>
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
 
-<!--效果html结束-->
-    
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
 
 
-
-    <div class="widget widget-recent-posts">
-        <h3 class="widget-title shine">最新文章</h3>
-        {% get_recent_posts as recent_post_list %}
-        <ul>
-           {% for post in recent_post_list %}
-           <li>
-               <a href="{{post.get_absolute_url }}">{{ post.title }}</a>
-           </li>
-           {% empty %}
-           暂无文章！
-           {% endfor %}
-        </ul>
-    </div>
-    <div class="widget widget-archives" style="position:relative;z-index: 1;">
-        <h3 class="widget-title shine">归档</h3>
-        {% archives as date_list %}
-        <ul>
-            {% for date in date_list %}
-            <li>
-                <a href="{% url 'blogapp:archives' date.year date.month %}">{{ date.year }}年{{ date.month }}月</a>
-            </li>
-            {% empty %}
-            暂无归档！
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="widget widget-category" style="position:absolute;z-index: 1;">
-        <h3 class="widget-title shine">分类</h3>
-        {% get_categories as category_list %}
-        <ul>
-            {% for category in category_list %}
-            <li>
-                <a href="{% url 'blogapp:category' category.pk %}" >{{ category.name }}<span class="post-count">({{ category.num_posts }})</span></a>
-            </li>
-            {% empty %}
-            暂无分类！
-            {% endfor %}
-        </ul>
-    </div>
-<h3 class="widget-title shine" style="position: absolute;z-index: 1;bottom: -70%;">标签云</h3>
-    <div class="widget widget-tag-cloud" style="position: absolute;bottom: 280px;">
-        
-        
-        {% get_tags as tag_list %}
-        <div id="screen" class="screen">
-           {% for tag in tag_list %}
-           
-               <a href="{% url 'blogapp:tag' tag.pk %}">{{ tag.name }}</a>
-           
-           {% empty %}
-           暂无标签！
-           {% endfor %}
-        </div>
-    </div>
-    <div class="rss">
-        <a href="{% url 'rss' %}" style="position: absolute;bottom: -800px;"><span class="ion-social-rss-outline" ></span> RSS 订阅</a>
-    </div>
-</aside>
-        </div>
-    </div>
-</div>
-
-
-<!-- Mobile Menu -->
-<div class="overlay overlay-hugeinc" style="position: absolute;z-index: 10000;">
-    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
-    <nav>
-        <ul>
-            <li><a href="{% url 'blogapp:index' %}">首页</a></li>
-            <li><a href="{% url 'blogapp:full-width' %}">博客</a></li>
-            <li><a href="{% url 'blogapp:about' %}">关于</a></li>
-            <li><a href="{% url 'blogapp:contact' %}">联系</a></li>
-        </ul>
-    </nav>
-</div>
-
-<script src="{% static 'blogapp/js/script.js' %}"></script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 
 </body>
 </html>

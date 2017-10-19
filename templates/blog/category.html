@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block section %}
+
+<section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
+    <span class="archive-page-counter">
+      该分类下共有 {{ post_count }} 篇文章
+    </span>
+        <div class="collection-title">
+      <h2>
+        <span style="font-family: 'KaiTi'">{{ cate.name }}</span>
+        <small>分类</small>
+      </h2>
+    </div>
+    
+    {% for post in post_list %}
+    <article class="post post-type-normal" itemscope itemtype="http://www.linyachao.com">
+    <header class="post-header">
+      <h2 class="post-title">      
+            <a class="post-title-link" href="{{ post.get_absolute_url }}" itemprop="url">            
+                <span itemprop="name">{{ post.title }}</span>         
+            </a>   
+      </h2>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-06-04T19:16:21+08:00"
+              content="{{ post.created_time.year }}-{{ post.created_time.month }}-{{ post.created_time.day }}" >
+          {{ post.created_time.month }}-{{ post.created_time.day }}
+        </time>
+      </div>
+
+    </header>
+  </article>
+    {% empty %}
+      <div>该分类下暂无文章！</div>
+  {% endfor %}
+
+  
+  </section>
+ <!--<nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>-->
+
+{% endblock section %}
+
+{% block aside %}
+
+<div class="sidebar-inner">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://www.linyachao.com">
+          <img class="site-author-image" itemprop="image"
+               src="{% static 'blog/img/logo.png' %}"
+               alt="Josiah" />
+          <p class="site-author-name" itemprop="name">Josiah Lin</p>
+          <p class="site-description motion-element" itemprop="description">Keep thinking</p>
+        </div>
+        <nav class="site-state motion-element">     
+            <div class="site-state-item site-state-posts">
+              <a href="{% url 'blog:archives' %}">
+                <span class="site-state-item-count">{{ allpost_count }}</span>
+                <span class="site-state-item-name">博客</span>
+              </a>
+            </div> 
+            <div class="site-state-item site-state-categories">
+              <a href="{% url 'blog:categories' %}">
+                <span class="site-state-item-count">{{ category_count }}</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>     
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">{{ tags_count }}</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+        </nav>
+ 
+          <div class="feed-link motion-element">
+            <a href="{% url 'rss' %}" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        <div class="links-of-author motion-element">
+              <span class="links-of-author-item">
+                <a href="https://github.com/Josiah-Lin" target="_blank" title="GitHub">                
+                    <i class="fa fa-fw fa-github"></i>             
+                  GitHub
+                </a>
+              </span>            
+        </div>
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://zmrenwu.com/" title="追梦人物" target="_blank">追梦人物的博客</a>
+                </li>
+            </ul>
+          </div>
+
+      </section>
+    </div>
+
+{% endblock aside %}
+
+{% block script %}
+
+<script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+</script>
+
+ <script type="text/javascript" src="{% static 'blog/js/bootstrap.js' %}"></script>
+    <script type="text/javascript">
+      var disqus_shortname = 'Josiah';
+      var disqus_identifier = 'index.html';
+      var disqus_title = "";
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+      run_disqus_script('count.js');
+    </script>
+
+{% endblock script %}
