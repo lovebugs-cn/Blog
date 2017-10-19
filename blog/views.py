@@ -1,5 +1,4 @@
 from django.shortcuts import render,get_object_or_404
-from comments.forms import CommentForm
 from .models import Post,Category,Tag
 import markdown
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
@@ -57,9 +56,15 @@ def detail(request,post_id):
 		])
 	post.body = md.convert(post.body)
 	post.toc = md.toc
-	form = CommentForm()
-	comment_list = post.comment_set.all()
-	context = {'post':post,'allpost_count':allpost_count,'category_count':category_count,'tags_count':tags_count,'comment_list':comment_list}
+	'''
+	post.body = markdown.markdown(post.body,
+									extensions=[
+										'markdown.extensions.extra',
+										'markdown.extensions.codehilite',
+										'markdown.extensions.toc',
+									])
+	'''
+	context = {'post':post,'allpost_count':allpost_count,'category_count':category_count,'tags_count':tags_count}
 	return render(request,'blog/detail.html',context)
 
 # 获取所有分类
