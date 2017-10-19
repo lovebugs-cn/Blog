@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dw@b97%n1s7)py4gtdi&ih!1#kvv-rb-#ovedw3t&b0k1j3=&9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', '.linyachao.com']
 
 
 # Application definition
@@ -140,3 +140,4 @@ HAYSTACK_SEARCH_RESULTS_PER_PAGE 指定如何对搜索结果分页，这里设�
 HAYSTACK_SIGNAL_PROCESSOR 指定什么时候更新索引，这里使用 haystack.signals.RealtimeSignalProcessor，作用是每当有文章更新时就更新索引。
 由于博客文章更新不会太频繁，因此实时更新没有问题。
 '''
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
